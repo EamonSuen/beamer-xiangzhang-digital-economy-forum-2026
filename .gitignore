@@ -1,17 +1,53 @@
+# Build output
 output/
+
+# LaTeX auxiliary files
 *.aux
 *.bbl
 *.bcf
 *.blg
+*.end
 *.fdb_latexmk
 *.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
 *.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
 *.nav
 *.out
 *.run.xml
 *.snm
 *.synctex.gz
+*.synctex(busy)
 *.toc
-*.xdv
+*.upa
+*.upb
 *.vrb
+*.xdv
+
+# Minted / Pygments
+*.pyg
+_minted*/
+
+# Temp and backup files
+*.tmp
+*.bak
+*.backup
+*.sav
+*~
+
+# TeXstudio / editor files
+*.autosave
+auto/
+
+# macOS
 .DS_Store
