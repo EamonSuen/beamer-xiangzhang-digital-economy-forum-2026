@@ -1,0 +1,143 @@
+\section{实证结果}
+
+\begin{frame}{基准结果：投资结构发生转向}
+  \centering
+  \small
+  \begin{tabular}{lcccc}
+    \toprule
+      & \multicolumn{2}{c}{CapEX} & \multicolumn{2}{c}{R\&D} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+      & (1) & (2) & (3) & (4) \\
+    \midrule
+    两化融合 & -0.005** & -0.005** & 0.003*** & 0.003*** \\
+             &          &          &           &          \\
+    控制变量 & No       & Yes      & No        & Yes      \\
+    企业固定效应 & Yes  & Yes      & Yes       & Yes      \\
+    年份固定效应 & Yes  & Yes      & Yes       & Yes      \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.8em}
+  \begin{itemize}
+    \item CapEX1 相对均值下降约 9.8\%，RD1 相对均值上升约 14.3\%。
+    \item 以平均资产规模约 39.8 亿元测算，约 550 亿元资金转向研发创新领域，并伴随约 917 亿元实物投资缩减。
+    \item 结果与“从实物资本转向研发活动”的结构重配一致。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{动态效应}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.96\linewidth,height=0.67\textheight,keepaspectratio]{EventStudy_AllEstimators_CI_3x2.pdf}
+    \caption{多种事件研究估计量下的动态效应}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{解释：不是短期提前反应}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.88\linewidth,height=0.64\textheight,keepaspectratio]{Anticipation_EventStudy.pdf}
+    \caption{有限预期窗口下的稳健性检验}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{机制一：抵押囤积的识别}
+  \begin{itemize}
+    \item 核心前提：部分企业在贯标前持有超出生产基本面所需的实物资本。
+    \item 构造“事前囤积楔子” PH：控制产出规模、劳动投入、行业与年份后，企业有形资本存量的超额残差。
+    \item 可证伪推论：
+      \begin{itemize}
+        \item 高 PH 企业在事前更依赖抵押融资。
+        \item 贯标后的 CapEX 收缩集中在高 PH 企业。
+        \item 出清主要通过控制新增边际投资，而非处置既有存量资产。
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{机制二：借款能力与抵押替代}
+  \begin{itemize}
+    \item 贯标后企业总贷款规模显著上升，说明外部借款能力增强。
+    \item 信贷扩张主要集中于短期贷款，与银行在信息仍不完全时通过续贷频率进行动态监督一致。
+    \item 剩余抵押空间越小的企业，贯标带来的总贷款、抵押贷款和短期贷款扩张越强。
+    \item 这说明信息可验证性在边际上替代了实物抵押的增信功能，而非只是普遍扩大融资规模。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{机制三：银行竞争与软信息替代}
+  \begin{itemize}
+    \item 若数字化发挥“信息硬化”作用，效应应在关系型软信息更稀缺的信贷市场更强。
+    \item 使用城市前三大、前五大银行分支机构集中度刻画地方信贷市场结构。
+    \item 结果显示：银行竞争越激烈、集中度越低，贯标对企业信贷获取和抵押贷款的促进作用越强。
+    \item 企业端的抵押替代与银行端的软信息替代相互印证。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{机制四：融资条件改善的微观后果}
+  \begin{itemize}
+    \item 投资对现金流敏感性下降：企业投资不再高度依赖内部现金流。
+    \item 预防性储蓄动机减弱：企业不必为未来融资不确定性过度持有现金。
+    \item 信贷边界拓宽并未导致无差别扩张，而是使低效抵押囤积的必要性下降。
+    \item 这解释了为何融资改善可以同时伴随 CapEX 收缩与 RD 扩张。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{机制五：资本配置效率改善}
+  \begin{itemize}
+    \item 高 MRPK 企业在贯标后边际回报回落，行业内资本错配程度下降。
+    \item 企业投资对滞后一期 Tobin's Q 的敏感性上升，说明投资筛选更依赖成长机会。
+    \item 资本年龄越高的企业，贯标对 CapEX 的抑制越强，与老旧资本上的抵押囤积出清一致。
+    \item 实物投资收缩不是实体经济空心化，而是从规模扩张导向转向回报导向。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{机制六：研发价值提升}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.86\linewidth,height=0.63\textheight,keepaspectratio]{Mechanism_InnovationValue_ES.pdf}
+    \caption{机制检验：创新价值、人力资本与研发效率}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{稳健性与竞争性解释}
+  \begin{columns}[T]
+    \column{0.48\textwidth}
+      \textbf{稳健性}
+      \begin{itemize}
+        \item 交叠 DID 异质性稳健估计量
+        \item 合成 DID
+        \item PSM-DID
+        \item TWFE 权重诊断
+        \item 时间、空间与混合安慰剂检验
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{竞争性解释}
+      \begin{itemize}
+        \item 供给侧去产能
+        \item 金融去杠杆
+        \item 房地产周期
+        \item 投入产出网络溢出
+        \item 宽带中国、知识产权质押、创新城市
+      \end{itemize}
+  \end{columns}
+  \vspace{0.5em}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.62\linewidth,height=0.28\textheight,keepaspectratio]{alternative_explanations.pdf}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{安慰剂检验}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.86\linewidth,height=0.63\textheight,keepaspectratio]{安慰剂检验_合并图.pdf}
+    \caption{随机化处理下的安慰剂分布}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{经济含义}
+  \begin{itemize}
+    \item 数字化的投资效应不是简单“扩张投资规模”，而是改变资本配置的契约基础。
+    \item 当信息可验证性足以支撑债务契约时，信贷供给可部分脱离实物抵押依赖。
+    \item 实物投资下降需要与研发扩张、MRPK 离散度下降和投资--Q 敏感性上升一起评价。
+    \item 本文为宏观层面固定资产投资放缓与研发占比上升提供了微观解释。
+  \end{itemize}
+\end{frame}

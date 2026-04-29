@@ -1,0 +1,59 @@
+\section{研究设计}
+
+\begin{frame}{数据与样本}
+  \begin{itemize}
+    \item 样本：2009--2023 年 A 股上市公司。
+    \item 处理变量：企业获得两化融合贯标试点或认证后取 1。
+    \item 结果变量：
+      \begin{itemize}
+        \item CapEX1：购建固定资产、无形资产和其他长期资产支付的现金 / 总资产。
+        \item RD1：研发支出 / 总资产。
+        \item RD2 与研发投资作为替代研发投入指标。
+      \end{itemize}
+    \item 连续变量进行 1\% 和 99\% 分位缩尾，剔除金融类与异常样本。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{基准模型}
+  \begin{block}{交叠双重差分}
+  \begin{align*}
+    y_{it} = \alpha_i + \gamma_t + \beta D_{it}
+    + \theta X_i \times f(t) + \varepsilon_{it}
+  \end{align*}
+  \end{block}
+  \begin{itemize}
+    \item $\alpha_i$：企业固定效应；$\gamma_t$：年份固定效应。
+    \item $X_i \times f(t)$：基期企业特征与时间三次多项式交互，吸收事前禀赋导致的差异化趋势。
+    \item 标准误聚类到企业层面。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{处理时点：允许有限提前反应}
+  \begin{itemize}
+    \item 两化融合并非突发性冲击，贯标包含“实施--评估--认证”的过程。
+    \item 企业可能在可观测认证节点之前已经开始对标改造与投入调整。
+    \item 基准事件研究以认证完成节点为统一可观测事件时间。
+    \item 同时通过事前趋势诊断和有限预期窗口设定，检验主结论对提前反应处理的敏感性。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{无预期效应检验}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{NoAnticipation_CapEX.pdf}
+    \column{0.5\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{NoAnticipation_RD.pdf}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{识别假设与稳健性路径}
+  \begin{itemize}
+    \item 共同趋势：若未发生贯标冲击，处理组与对照组的投资结构应保持相似演进趋势。
+    \item 进入年份检验：政策实施年份不应由处理前投资水平或趋势系统预测。
+    \item 异质性稳健 DID：CSDID、DCDH、SA、BSJ、Stacked DID。
+    \item 安慰剂检验：伪处理时点、随机处理组、混合随机化。
+    \item 替代解释：供给侧去产能、金融去杠杆、房地产周期与投入产出网络溢出。
+  \end{itemize}
+\end{frame}

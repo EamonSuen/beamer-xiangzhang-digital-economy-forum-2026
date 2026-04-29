@@ -1,0 +1,56 @@
+\section{研究问题}
+
+\begin{frame}{汇报信息}
+  \begin{itemize}
+    \item 会议：第五届香樟数字经济论坛
+    \item 论文：《数字化转型的投资结构优化效应》
+    \item 作者：王倩、孙翊铭
+    \item 时间地点：2026年5月10日，中国长春
+    \item 汇报时长：20分钟
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{研究问题}
+  \begin{itemize}
+    \item 既有数字化文献多强调生产率、创新产出和投资扩张。
+    \item 但在不完美金融市场中，企业可能为缓解融资约束而持有过量可抵押实物资产。
+    \item 本文关注：数字化如何改变企业在实物资本与研发活动之间的配置？
+    \item 进一步追问：这种重配是被动收缩，还是信息替代抵押后的资源配置优化？
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{核心机制：信息替代抵押}
+  \begin{columns}[T]
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item 两化融合贯标提高经营活动的标准化、可记录性与可验证性。
+        \item 内部经营信息更容易被信贷供给方识别、审计和定价。
+        \item 当信息可验证性替代实物抵押的增信功能时，企业不必继续囤积低效实物资本。
+        \item 释放出的资源转向研发等知识资本投入。
+      \end{itemize}
+    \column{0.45\textwidth}
+      \centering
+      \resizebox{\linewidth}{!}{%
+      \begin{tikzpicture}[node distance=0.7cm, every node/.style={font=\scriptsize}]
+        \node[draw, rounded corners, align=center, fill=gray!10, minimum width=2.9cm] (digital) {数字化转型\\两化融合贯标};
+        \node[draw, rounded corners, align=center, fill=blue!8, below left=of digital, xshift=-0.1cm] (info) {经营信息硬化\\可验证性提高};
+        \node[draw, rounded corners, align=center, fill=blue!8, below right=of digital, xshift=0.1cm] (finance) {信贷边界拓宽\\抵押依赖下降};
+        \node[draw, rounded corners, align=center, fill=green!10, below=1.0cm of digital] (allocation) {抵押囤积出清\\CapEX $\downarrow$ \quad RD $\uparrow$};
+        \draw[-{Latex}] (digital) -- (info);
+        \draw[-{Latex}] (digital) -- (finance);
+        \draw[-{Latex}] (info) -- (allocation);
+        \draw[-{Latex}] (finance) -- (allocation);
+      \end{tikzpicture}
+      }
+  \end{columns}
+\end{frame}
+
+\begin{frame}{主要发现}
+  \begin{itemize}
+    \item 数字化转型抑制企业实物资本支出，同时促进研发投入。
+    \item 基准估计：CapEX1 相对均值下降约 9.8\%，RD1 相对均值上升约 14.3\%。
+    \item 机制证据：效应集中于传统抵押空间受限、银行竞争更激烈、关系型软信息更稀缺的信贷市场。
+    \item 事前囤积楔子检验：实物资本收缩集中于事前抵押融资依赖度较高的企业。
+    \item 重配结果：MRPK 离散度下降，投资对成长机会敏感性上升。
+  \end{itemize}
+\end{frame}

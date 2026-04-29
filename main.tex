@@ -1,0 +1,147 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage[UTF8,fontset=none]{ctex}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, shapes.geometric, positioning, calc, fit}
+\usepackage{csquotes}
+\usepackage{colortbl}       % \rowcolor in tables
+\usepackage{listings}       % code listings
+\usepackage{ccicons}    % Creative Commons icons
+
+% listings global style
+\lstset{
+  basicstyle   = \ttfamily\scriptsize,
+  keywordstyle = \color{blue!80!black}\bfseries,
+  commentstyle = \color{gray}\itshape,
+  stringstyle  = \color{teal},
+  numbers      = left,
+  numberstyle  = \tiny\color{gray},
+  numbersep    = 6pt,
+  frame        = single,
+  rulecolor    = \color{gray!40},
+  breaklines   = true,
+  tabsize      = 2,
+  showstringspaces = false,
+}
+\usepackage{hyperref}
+\usepackage{appendixnumberbeamer}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\graphicspath{{figures/}{figures/paper/}}
+
+% Stable local font root. This path is intentionally absolute because the
+% font repository is kept in a fixed location outside the template project.
+\newcommand{\FontRoot}{/Users/eamonsuen/Documents/GitHub/latex-chinese-fonts}
+
+% English fonts
+\setmainfont{TimesNewRoman.ttf}[
+  Path = \FontRoot/english/Serif/,
+  BoldFont = TimesNewRomanBold.ttf,
+  ItalicFont = TimesNewRomanItalic.ttf,
+  BoldItalicFont = TimesNewRomanBoldItalic.ttf
+]
+\setsansfont{Helvetica.ttf}[
+  Path = \FontRoot/english/Sans/,
+  BoldFont = HelveticaBold.ttf,
+  ItalicFont = HelveticaOblique.ttf,
+  BoldItalicFont = HelveticaBoldOblique.ttf
+]
+\setmonofont{Courier.ttf}[
+  Path = \FontRoot/english/Mono/,
+  BoldFont = CourierBold.ttf,
+  ItalicFont = CourierOblique.ttf,
+  BoldItalicFont = CourierBoldOblique.ttf
+]
+
+% Chinese fonts
+\setCJKmainfont{FangSong.ttf}[
+  Path = \FontRoot/chinese/仿宋体/,
+  AutoFakeBold = true,
+  AutoFakeSlant = true
+]
+\setCJKsansfont{STHeiti.ttf}[
+  Path = \FontRoot/chinese/黑体/,
+  AutoFakeBold = true,
+  AutoFakeSlant = true
+]
+\setCJKmonofont{SimHei.ttf}[
+  Path = \FontRoot/chinese/黑体/,
+  AutoFakeBold = true,
+  AutoFakeSlant = true
+]
+
+% Optional per-project override examples.
+% \setmainfont{YourSerifFont.ttf}[Path=fonts/serif/]
+% \setsansfont{YourSansFont.ttf}[Path=fonts/sans/]
+% \setmonofont{YourMonoFont.ttf}[Path=fonts/mono/]
+
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+\usetheme{default}
+\usecolortheme{default}
+\useoutertheme{infolines}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+\title{数字化转型的投资结构优化效应}
+\subtitle{第五届香樟数字经济论坛}
+\author[王倩、孙翊铭]{王倩\inst{1,2} \and 孙翊铭\inst{2}\\[0.35em]{\small 汇报人：孙翊铭}}
+\institute[吉林大学]{\inst{1}吉林大学国有经济研究中心 \and \inst{2}吉林大学经济学院\\ \texttt{sunym25@mails.jlu.edu.cn}}
+\date{2026年5月10日 · 长春}
+\hypersetup{
+  pdftitle={数字化转型的投资结构优化效应},
+  pdfauthor={王倩, 孙翊铭}
+}
+
+% Keep a single opening outline for a 20-minute conference talk.
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \begin{multicols}{2}
+    \tableofcontents
+  \end{multicols}
+\end{frame}
+
+\input{sections/01_intro}
+\input{sections/02_background}
+\input{sections/03_model}
+\input{sections/04_empirics}
+\input{sections/05_conclusion}
+% Backup slides can be added with:
+% \appendix
+% \input{sections/99_appendix}
+
+% ---- 样例库 ----
+% 取消下一行注释即可将幻灯片样例库编译进文档（仅供参考，不计入正文页码）：
+% \input{sections/00_slide_gallery}
+
+\begin{frame}
+  \vspace*{\fill}
+  \begin{center}
+    {\Huge \textbf{谢谢聆听！}} \\[1em]
+    {\large Q \& A}
+  \end{center}
+  \vspace*{\fill}
+  
+  \begin{center}
+    \tiny \textcolor{gray}{
+      \ccby \\ % 这里会渲染出 CC 和 BY 的官方小图标
+      This work is licensed under a \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
+    }
+  \end{center}
+\end{frame}
+
+\end{document}
