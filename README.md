@@ -1,98 +1,40 @@
-# 数字化转型的投资结构优化效应：第五届香樟数字经济论坛 Beamer
+# 数字化转型的投资结构优化效应
 
-这是为“第五届香樟数字经济论坛”准备的 20 分钟学术汇报 Beamer 项目，基于 `beamer-universal-academic-template` 创建。
+这是基于 `数字化转型的投资结构优化效应_汇报讲稿.md` 生成的中文学术 Beamer 汇报项目。
 
-内容依据：
+## 项目结构
 
-- Gmail 邮件《第五届香樟数字经济论坛入选通知》
-- 最新论文文档：`/Users/eamonsuen/Documents/GitHub/Paper-Digital-Real-Integration/04_Writing/数字化转型的投资结构优化效应_260424_YimingV3.docx`
-
-## 特点
-
-- 基于 `XeLaTeX + ctex + biblatex`
-- 支持中英文混排
-- 按章节拆分内容，便于长期维护
-- 预留 `figures/`、`tables/`、`bib/` 和 `fonts/` 目录
-- 使用 `output/` 统一存放编译产物
-
-## 目录
-
-```text
-beamer-universal-academic-template/
-├── README.md
-├── .gitignore
-├── main.tex
-├── references.bib
-├── sections/
-├── figures/
-├── tables/
-├── bib/
-├── fonts/
-└── output/
-```
+- `main.tex`：Beamer 入口、字体、主题、标题信息、章节顺序与参考文献。
+- `sections/01_intro.tex` 至 `sections/05_conclusion.tex`：正式汇报正文。
+- `sections/99_appendix.tex`：答辩预案与备用材料。
+- `tables/`：正文和附录中调用的回归表片段。
+- `references.bib`：正文引用的参考文献。
+- `output/main.pdf`：当前编译生成的汇报 PDF。
 
 ## 编译
 
-推荐使用：
+在项目根目录运行：
 
 ```bash
 latexmk -xelatex -outdir=output main.tex
 ```
 
-清理辅助文件：
+项目使用 `XeLaTeX + ctex + biblatex`。字体路径在 `main.tex` 中的 `\FontRoot` 设置为：
 
-```bash
-latexmk -c -outdir=output main.tex
+```tex
+\newcommand{\FontRoot}{/Users/eamonsuen/Documents/GitHub/latex-chinese-fonts}
 ```
 
-## 会议信息
+如果换机器编译，只需要把该路径改为本机 `latex-chinese-fonts` 仓库的位置。
 
-- 会议时间：2026-05-10
-- 会议地点：中国长春
-- 报到时间：2026-05-09 14:00
-- 汇报时长：20 分钟
-- 回执截止：2026-05-04
+## 内容安排
 
-详细备忘见 [notes/conference_brief.md](/Users/eamonsuen/Documents/GitHub/beamer-xiangzhang-digital-economy-forum-2026/notes/conference_brief.md)。
+正文按 20 分钟汇报组织：
 
-## 使用说明
+1. 研究问题与动机事实
+2. 两化融合贯标与融资契约机制
+3. ABL/CFL 双重融资摩擦模型
+4. 交叠 DID、基准结果、机制检验与效率含义
+5. 结论与政策启示
 
-1. 修改 `main.tex` 中的标题、作者、机构和日期。
-2. 按需编辑 `sections/` 下各章节文件。
-3. 将图片和 logo 放入 `figures/`。
-4. 将表格片段放入 `tables/`。
-5. 将文献维护在 `references.bib` 或 `bib/references.bib`。
-
-## 字体说明
-
-模板默认直接使用本机固定路径下的字体仓库：
-
-- `/Users/eamonsuen/Documents/GitHub/latex-chinese-fonts`
-
-当前默认配置：
-
-- 英文正文字体：`TimesNewRoman.ttf`
-- 英文无衬线：`Helvetica.ttf`
-- 英文等宽：`Courier.ttf`
-- 中文正文字体：`FangSong.ttf`
-- 中文无衬线：`STHeiti.ttf`
-- 中文等宽替代：`SimHei.ttf`
-
-这样做比依赖系统字体名更稳定，原因是：
-
-- 不依赖 Fontconfig 或系统字体注册状态
-- 字体粗体、斜体映射可以显式控制
-- 换机器后只要该仓库路径不变，编译结果更一致
-
-如果你希望针对单个项目使用自带字体，也可以把字体文件放入：
-
-- `fonts/serif/`
-- `fonts/sans/`
-- `fonts/mono/`
-
-然后在 [main.tex](/Users/eamonsuen/Documents/GitHub/beamer-universal-academic-template/main.tex) 中取消对应注释并调整文件名。
-
-## 建议
-
-- 若是正式汇报，建议把 `logo/logo.pdf` 替换为你的学校或机构标识。
-- 若文献库只保留一个版本，建议统一使用根目录的 `references.bib`。
+附录保留了讲稿中的常见答辩问题和备用融资表。

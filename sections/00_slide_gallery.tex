@@ -419,6 +419,103 @@
 \end{frame}
 
 % ------------------------------------------------------------------
+\subsection{彩色提示框 / Academic Boxes}
+% ------------------------------------------------------------------
+
+\begin{frame}{回归表格框}
+  % 直接在 tcolorbox 内使用 center + tabular；避免嵌入 table 浮动环境。
+  \begin{regressionbox}{主回归结果}
+    \begin{center}
+      \scriptsize
+      \begin{tabular}{lcccc}
+        \toprule
+        & (1) OLS & (2) OLS & (3) IV & (4) IV \\
+        \midrule
+        处理变量 & 0.125*** & 0.098** & 0.187*** & 0.142** \\
+                 & (0.031)  & (0.040) & (0.055)  & (0.063) \\
+        控制变量 & 否 & 是 & 否 & 是 \\
+        固定效应 & 否 & 是 & 否 & 是 \\
+        $N$      & 1{,}200 & 1{,}200 & 1{,}200 & 1{,}200 \\
+        $R^2$    & 0.18 & 0.34 & --- & --- \\
+        \bottomrule
+      \end{tabular}
+    \end{center}
+    {\tiny 注：括号内为聚类稳健标准误。*** $p<0.01$，** $p<0.05$。}
+  \end{regressionbox}
+\end{frame}
+
+\begin{frame}{结论与局限并排框}
+  \begin{columns}[T]
+    \column{0.49\textwidth}
+      \begin{findingbox}{核心发现}
+        \begin{itemize}
+          \item 处理变量显著提高主要结果变量。
+          \item 加入控制变量和固定效应后，估计量级保持稳定。
+          \item IV 估计更大，说明 OLS 可能存在向下偏误。
+        \end{itemize}
+      \end{findingbox}
+    \column{0.49\textwidth}
+      \begin{cautionbox}{主要局限}
+        \begin{itemize}
+          \item 工具变量有效性依赖排除限制。
+          \item 外部有效性主要适用于样本期间内的相似地区。
+          \item 机制证据仍需更多微观数据支持。
+        \end{itemize}
+      \end{cautionbox}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{方法、稳健性与政策含义}
+  \begin{methodbox}{识别策略}
+    使用政策冲击与地区暴露度构造处理强度，并控制地区固定效应与年份固定效应。
+  \end{methodbox}
+
+  \begin{robustbox}{稳健性检验}
+    替换结果变量口径、排除极端样本、加入地区线性趋势后，核心系数方向和显著性保持一致。
+  \end{robustbox}
+
+  \begin{policybox}{政策含义}
+    若目标是提高长期产出，政策设计应优先面向高暴露度且初始约束更强的地区。
+  \end{policybox}
+\end{frame}
+
+\begin{frame}[shrink=8]{综合结果页：表格 + 解读}
+  \begin{columns}[T]
+    \column{0.58\textwidth}
+      \begin{regressionbox}{估计结果}
+        \begin{center}
+          \scriptsize
+          \begin{tabular}{lccc}
+            \toprule
+            & 基准 & 控制 & 固定效应 \\
+            \midrule
+            处理变量 & 0.125*** & 0.098** & 0.091** \\
+                     & (0.031)  & (0.040) & (0.043) \\
+            控制变量 & 否 & 是 & 是 \\
+            地区 FE  & 否 & 否 & 是 \\
+            年份 FE  & 否 & 否 & 是 \\
+            $N$      & 1{,}200 & 1{,}200 & 1{,}200 \\
+            \bottomrule
+          \end{tabular}
+        \end{center}
+        {\tiny 注：标准误聚类到地区层面。}
+      \end{regressionbox}
+    \column{0.40\textwidth}
+      \begin{findingbox}{如何解读}
+        \begin{itemize}
+          \item 符号与理论预测一致。
+          \item 量级具有经济显著性。
+          \item 结果不依赖单一设定。
+        \end{itemize}
+      \end{findingbox}
+
+      \begin{cautionbox}{汇报时说明}
+        先解释识别假设，再讨论系数大小，最后说明仍待验证的机制。
+      \end{cautionbox}
+  \end{columns}
+\end{frame}
+
+% ------------------------------------------------------------------
 \subsection{代码与逐字排版 / Code \& Verbatim}
 % ------------------------------------------------------------------
 

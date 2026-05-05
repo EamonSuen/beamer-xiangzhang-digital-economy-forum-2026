@@ -1,68 +1,83 @@
 \section{制度背景与机制}
 
-\begin{frame}{制度背景：两化融合贯标}
+\begin{frame}{两化融合贯标：不只是"数字化"三个字}
+  先交代一下制度背景。大家可能觉得"数字化"这个词有点虚，但两化融合管理体系把它变得很具体。
+
   \begin{itemize}
-    \item 两化融合：以信息化推动工业化、以工业化促进信息化。
-    \item 管理体系贯标将数字化从零散技术改造转化为可复制、可审计、可持续改进的组织流程。
-    \item 截至2025年4月，贯彻两化融合管理体系标准的企业超过7.4万家。
-    \item 贯标严格依据国家统一标准，由独立第三方机构现场审查与分级认证。
-    \item 地区与年份维度上的分批推进，为交叠双重差分提供政策环境。
+    \item 这套体系把企业的数字化从零散的技术改造，变成了一套\emph{可复制、可审计、可持续改进}的组织流程。
+    \item 也就是说，贯标不是企业自己说"我在做数字化"，而是要经过第三方审核认证的。
+    \item 对我们研究者来说，这提供了一个关键优势：\emph{认证通过日是可观测的，试点又是分批推进的}。
   \end{itemize}
+
+  \begin{methodbox}{识别上的含义}
+    两化融合贯标不是一个抽象的概念，而是一个在企业层面可以清楚观察到的数字化治理能力认证——这正是 staggered DID 需要的处理变量。
+  \end{methodbox}
 \end{frame}
 
-\begin{frame}{政策推进：财政激励与试点示范}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.82\linewidth,height=0.62\textheight,keepaspectratio]{Subsidy_Trend.pdf}
-    \caption{上市公司获得的“两化融合”相关政府补助}
-  \end{figure}
-\end{frame}
+\begin{frame}{一个必须面对的问题：企业有预期}
+  但这里有一个麻烦，做 DID 的人都知道——两化融合不是突然从天而降的政策冲击。
 
-\begin{frame}{宏观事实：固定投资与研发投入分化}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.82\linewidth,height=0.62\textheight,keepaspectratio]{Macro_RDShare_LeftAxis_Index_RightAxis_1995base_BW.pdf}
-    \caption{固定投资与研发投入的相对变化}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{微观事实：实物投资与研发投入}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.82\linewidth,height=0.62\textheight,keepaspectratio]{Micro_Investment_Structure_Scissors.pdf}
-    \caption{上市企业投资结构的剪刀差}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{机制：抵押品替代与投资结构}
-  \begin{columns}[T]
-    \column{0.48\textwidth}
-      \textbf{传统约束}
-      \begin{itemize}
-        \item 外部融资依赖可抵押资产。
-        \item 实物资本兼具生产功能与抵押功能。
-        \item 研发更难估值、清算与抵押。
-      \end{itemize}
-    \column{0.48\textwidth}
-      \textbf{数字化冲击}
-      \begin{itemize}
-        \item 数据留痕改善信息可验证性。
-        \item 经营现金流更容易契约化。
-        \item 融资契约减少对实物抵押的依赖。
-      \end{itemize}
-  \end{columns}
-  \vspace{0.7em}
-  \begin{center}
-    \large 预测：抵押囤积型企业收缩 CapEX，研发投入无条件扩张
-  \end{center}
-\end{frame}
-
-\begin{frame}{理论预测：门槛命题}
+  \vspace{0.5em}
+  我们从四个角度记录了预期信号的存在：
   \begin{itemize}
-    \item 企业同时面临资产抵押与现金流抵押双重摩擦。
-    \item 数字化缓解融资约束后，有形资本调整方向取决于企业抵押能力是否超过临界水平。
-    \item 抵押能力低于阈值：原本融资不足，约束缓解后增加有形资本投入。
-    \item 抵押能力高于阈值：原本为融资囤积实物资产，约束缓解后收缩冗余产能。
-    \item 研发投入扩张不依赖于有形资本调整方向，是本文实证预测的核心不对称性。
+    \item \textbf{制度层面}：顶层战略从党的十六大就开始提了，2008 年起通过试验区逐步落地；
+    \item \textbf{激励层面}：A 股上市公司拿到的相关政府补助，从 \textbf{2010 年}起就显著上升了，远早于 2014 年贯标试点启动；
+    \item \textbf{舆论层面}：主流官方媒体的相关讨论在 2008--2010 年间就已经达到了样本期峰值；
+    \item \textbf{政策层面}：很多地方在认证完成前就把贯标结果纳入了扶持和采购加分。
+  \end{itemize}
+
+  \vspace{0.3em}
+  如果视而不见，事前趋势就会被污染。所以后面做事件研究的时候，我们必须把预期效应单独处理。
+\end{frame}
+
+\begin{frame}{预期信号：两条直接证据}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth,height=0.58\textheight,keepaspectratio]{figures/paper/subsidy-trend.png}
+        \caption{政府补助从 2010 年起就显著上升了}
+      \end{figure}
+    \column{0.5\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth,height=0.58\textheight,keepaspectratio]{figures/paper/keyword-trend.png}
+        \caption{官方媒体讨论在 2008--2010 年已达峰值}
+      \end{figure}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{融资结构的现实：不是只有抵押一条路}
+  回到融资问题。大家可能有一个印象——中国企业借钱主要靠抵押。但这个画面正在改变。
+
+  \begin{itemize}
+    \item Lian 和 Ma（2021）有一个很惊人的发现：美国大约 \textbf{80\%} 的企业债务，其背后是\emph{经营现金流}而不是资产抵押在支撑；
+    \item 万晓莉等（2025）记录了中国也在发生类似的转变：从抵押物导向转向现金流导向。
+  \end{itemize}
+
+  \vspace{0.4em}
+  所以现实中的企业融资，其实是\emph{两条通道并存}：
+  \begin{itemize}
+    \item \textbf{资产抵押（ABL）}：靠厂房、设备、土地做担保；
+    \item \textbf{现金流抵押（CFL）}：靠经营收入、现金流做还款保障。
+  \end{itemize}
+
+  \vspace{0.3em}
+  这就构成了我们后面建模的逻辑出发点。
+\end{frame}
+
+\begin{frame}{核心机制：数字化让"软"信息变"硬"}
+  那数字化是怎么改变这个结构的？
+
+  \begin{block}{一句话机制}
+    数字化提升经营活动的标准化、可记录性与可验证性，让原本银行"看不清、信不过"的内部经营信息，变得可以进入信贷契约。
+  \end{block}
+
+  \vspace{0.5em}
+  这件事的后果是系统性的：
+  \begin{itemize}
+    \item 当现金流信息可以被银行识别和定价，外部融资对实物抵押品的依赖性就下降了；
+    \item 那些原本为了融资而囤积低效实物资本的企业，维持冗余产能的激励就减弱了；
+    \item 所以，实物投资收缩\emph{不一定是坏事}——它可能是抵押囤积出清之后、资源向研发重新配置的结果。
   \end{itemize}
 \end{frame}

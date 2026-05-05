@@ -1,16 +1,20 @@
-\section{Appendix}
+\section{附录}
 
-\begin{frame}{Appendix Roadmap}
-  \begin{itemize}
-    \item Additional theory details
-    \item Robustness checks
-    \item Supplementary tables and figures
-  \end{itemize}
+\begin{frame}{可能被问到的问题：识别与测度}
+  \begin{description}
+    \item[为什么不用年报文本词频来衡量数字化？] 词频指标有测度误差，而且和企业经营表现同期相关——说不清是数字化在影响投资，还是业绩波动同时影响了词频和投资。贯标的好处是有一个清晰、外生、可验证的处理时点。
+    \item[为什么不用 KZ 或 SA 指数？] KZ 和 SA 度量的是融资约束的松紧程度，而我们关心的是：在控制了生产基本面之后，企业的资本存量有没有"多余"的部分。这是两个不同的问题。
+    \item[会不会只是整体缩表？] R\&D 支出、研发人员占比、创新补助和研发资本化比率都在上升——这和整体收缩的画面对不上。
+  \end{description}
 \end{frame}
 
-\begin{frame}{Extra Material}
-  \begin{itemize}
-    \item Put derivations, alternative specifications, or backup slides here.
-    \item The appendix does not affect the main slide numbering.
-  \end{itemize}
+\begin{frame}{可能被问到的问题：模型与因果}
+  \begin{description}
+    \item[门槛的存在是否依赖于参数设定？] 门槛的存在来自 ABL 和 CFL 双契约结构本身，不是参数校准的结果。而且资本年龄异质性提供了独立于参数选择的经验支持。
+    \item[会不会是企业自选择？] 事前企业特征对政策进入年份的解释力有限，PSM-DID、合成控制 DID 和堆叠 DID 的结论都和基准一致。
+  \end{description}
+\end{frame}
+
+\begin{frame}{备用表：借款能力与融资约束}
+  \input{tables/appendix-finance}
 \end{frame}

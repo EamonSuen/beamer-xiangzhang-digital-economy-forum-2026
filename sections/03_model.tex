@@ -1,59 +1,134 @@
-\section{研究设计}
+\section{理论模型}
 
-\begin{frame}{数据与样本}
+\begin{frame}{模型要回答什么问题？}
+  在展示数据之前，我想先用一个简单的模型把故事讲清楚。
+
+  \vspace{0.5em}
+  模型需要同时解释三件事：
   \begin{itemize}
-    \item 样本：2009--2023 年 A 股上市公司。
-    \item 处理变量：企业获得两化融合贯标试点或认证后取 1。
-    \item 结果变量：
-      \begin{itemize}
-        \item CapEX1：购建固定资产、无形资产和其他长期资产支付的现金 / 总资产。
-        \item RD1：研发支出 / 总资产。
-        \item RD2 与研发投资作为替代研发投入指标。
-      \end{itemize}
-    \item 连续变量进行 1\% 和 99\% 分位缩尾，剔除金融类与异常样本。
+    \item 为什么数字化会让一些企业\emph{减少}实物投资，却\emph{增加}研发投入？
+    \item 什么样的企业更容易减少实物投资——融资受限的，还是融资能力过强的？
+    \item 这种调整对企业效率意味着什么？
   \end{itemize}
+
+  \vspace{0.5em}
+  我们的做法是把\emph{资产抵押（ABL）}和\emph{现金流抵押（CFL）}同时放在一个两期模型里，让企业在双重摩擦下做投融资决策。
 \end{frame}
 
-\begin{frame}{基准模型}
-  \begin{block}{交叠双重差分}
-  \begin{align*}
-    y_{it} = \alpha_i + \gamma_t + \beta D_{it}
-    + \theta X_i \times f(t) + \varepsilon_{it}
-  \end{align*}
-  \end{block}
+\begin{frame}{模型设定：企业的经营现金流}
+  企业在一个时期内的可验证经营现金流来自两个部分：
+
+  \[
+    \pi_i \;=\; \underbrace{A_i K_i^\alpha}_{\text{当期生产现金流}}
+    \;+\;
+    \underbrace{G_i^\beta L_i^{1-\beta}}_{\text{创新产出}}.
+  \]
+
   \begin{itemize}
-    \item $\alpha_i$：企业固定效应；$\gamma_t$：年份固定效应。
-    \item $X_i \times f(t)$：基期企业特征与时间三次多项式交互，吸收事前禀赋导致的差异化趋势。
-    \item 标准误聚类到企业层面。
+    \item 第一部分是存量实物资本 $K_i$ 带来的当期生产收入；
+    \item 第二部分是研发资本 $G_i$ 和研发人员 $L_i$ 共同创造的创新产出。
   \end{itemize}
+
+  \vspace{0.4em}
+  为什么要把创新产出放进现金流？因为在数字化环境下，创新活动（专利、软件著作权、新产品收入）本身也在变得越来越可记录、可验证。
 \end{frame}
 
-\begin{frame}{处理时点：允许有限提前反应}
-  \begin{itemize}
-    \item 两化融合并非突发性冲击，贯标包含“实施--评估--认证”的过程。
-    \item 企业可能在可观测认证节点之前已经开始对标改造与投入调整。
-    \item 基准事件研究以认证完成节点为统一可观测事件时间。
-    \item 同时通过事前趋势诊断和有限预期窗口设定，检验主结论对提前反应处理的敏感性。
-  \end{itemize}
-\end{frame}
+\begin{frame}{融资约束：双通道并存}
+  企业的预算约束是：
 
-\begin{frame}{无预期效应检验}
+  \[
+    (1-\theta_i)K_i + (1-s)\kappa G_i + wL_i
+    \;\leq\;
+    \mu(d_i)\pi_i.
+  \]
+
+  \vspace{0.4em}
   \begin{columns}[T]
     \column{0.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{NoAnticipation_CapEX.pdf}
+      \begin{methodbox}{资产抵押通道（ABL）}
+        $\theta_i$ 是\emph{资产可抵押比例}——设备厂房有多少能拿来担保。比例越高，同样的 $K_i$ 能撬动的外部融资越多。
+      \end{methodbox}
     \column{0.5\textwidth}
-      \centering
-      \includegraphics[width=\linewidth,height=0.62\textheight,keepaspectratio]{NoAnticipation_RD.pdf}
+      \begin{methodbox}{现金流抵押通道（CFL）}
+        $\mu(d_i)$ 是\emph{现金流可契约化比例}——经营现金流有多少能被银行认可。数字化水平 $d_i$ 越高，$\mu(d_i)$ 越大。
+      \end{methodbox}
   \end{columns}
+
+  \vspace{0.4em}
+  数字化做的事，就是提高 $\mu(d_i)$，让现金流信息更多地进入信贷契约。
 \end{frame}
 
-\begin{frame}{识别假设与稳健性路径}
+\begin{frame}{核心结果：一个有方向的"门槛"}
+
+  从模型的一阶条件出发，我们可以定义一个门槛值：
+  \[
+    \overline{MPK}_i(\lambda_i)
+    \;=\;
+    \frac{\tilde{\delta}_{K,i}+\lambda_i\bigl[1-\theta_i(d_i)\bigr]}
+         {1+\lambda_i\,\mu(d_i)}.
+  \]
+
+  \vspace{0.3em}
+  直观理解：\emph{企业应该把实物资本推到什么水平为止？}门槛值给出了答案——它取决于融资约束的影子价格 $\lambda_i$、资产的可抵押性 $\theta_i$、以及现金流的可契约化程度 $\mu(d_i)$。
+\end{frame}
+
+\begin{frame}{门槛的含义：一个关键的不对称性}
+  根据 $\theta_i$ 和一个临界值 $\overline{\theta}=1-\mu(d_i)\tilde{\delta}_{K,i}$ 的关系，企业分成两类：
+
+  \vspace{0.5em}
+  \begin{columns}[T]
+    \column{0.5\textwidth}
+      \begin{methodbox}{融资受限型（$\theta_i<\overline{\theta}$）}
+        实物资本本来被融资不足压在效率水平以下。数字化缓解了融资约束，企业获得扩张空间，\textbf{增加}有形资本投入。
+      \end{methodbox}
+    \column{0.5\textwidth}
+      \begin{cautionbox}{抵押囤积型（$\theta_i>\overline{\theta}$）}
+        实物资本已被融资动机推到超出生产需要的水平。数字化让企业不再需要那么多抵押品，反而\emph{收缩}有形资本。
+      \end{cautionbox}
+  \end{columns}
+
+  \vspace{0.6em}
+  \begin{findingbox}{一个很有意思的预测}
+    尽管两类企业在实物资本上的调整方向\emph{截然相反}，但它们在研发投入上的扩张是\emph{一致的}——数字化无条件地推动知识资本增长。
+  \end{findingbox}
+\end{frame}
+
+\begin{frame}{模型可视化：两类企业的投入调整}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.78\linewidth,height=0.62\textheight,keepaspectratio]{figures/paper/model-inputs-mu.png}
+    \caption{$\mu(d_i)$ 提高后，两类企业在实物资本（左）和研发投入（右）上的不同响应}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{模型可视化：门槛如何随数字化水平移动}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.78\linewidth,height=0.62\textheight,keepaspectratio]{figures/paper/model-thresholds-mu.png}
+    \caption{数字化水平提高时，门槛值 $\overline{\theta}$ 和两类区域边界的变化}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{门槛的一个隐含含义：资本越老，越容易囤积}
+  门槛 $\overline{\theta}$ 还有一个值得展开的性质：
+
   \begin{itemize}
-    \item 共同趋势：若未发生贯标冲击，处理组与对照组的投资结构应保持相似演进趋势。
-    \item 进入年份检验：政策实施年份不应由处理前投资水平或趋势系统预测。
-    \item 异质性稳健 DID：CSDID、DCDH、SA、BSJ、Stacked DID。
-    \item 安慰剂检验：伪处理时点、随机处理组、混合随机化。
-    \item 替代解释：供给侧去产能、金融去杠杆、房地产周期与投入产出网络溢出。
+    \item $\overline{\theta}$ 会随着\emph{资本老化程度上升而下降}；
+    \item 也就是说，\emph{设备越老旧的企业，门槛越低，越容易掉进抵押囤积区域}；
+    \item 这个预测的好处是它可以直接拿到数据里去检验——我们用资本年龄做分组变量，看老资本企业和新资本企业的反应是否不同。
   \end{itemize}
+\end{frame}
+
+\begin{frame}{从模型到实证：四个可检验的预测}
+  总结一下，模型给了我们四个可以拿到数据里去验证的命题：
+
+  \begin{enumerate}
+    \item \textbf{基准预测}：贯标后，企业实物资本支出下降、研发投入上升。
+    \item \textbf{囤积出清}：CapEX 的收缩，应该集中出现在事前抵押融资依赖更强、超额资本存量更高的企业身上。
+    \item \textbf{信息替代}：传统抵押空间越紧、关系型软信息越稀缺的市场，贯标带来的信贷扩张应该越明显。
+    \item \textbf{效率含义}：如果这不是被动紧缩，应该看到 MRPK 离散度下降、投资对成长机会更敏感、老资本企业调整更剧烈。
+  \end{enumerate}
+
+  \vspace{0.4em}
+  接下来我们一个一个看数据上是否支持这些预测。
 \end{frame}
