@@ -90,9 +90,22 @@
 \usefonttheme{serif}
 \usetheme{default}
 \usecolortheme{default}
-\useoutertheme{infolines}
+\useoutertheme{miniframes}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{caption}[numbered]
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.1ex]{author in head/foot}%
+    \usebeamerfont{author in head/foot}
+    \tiny%
+    \makebox[\paperwidth]{%
+      \makebox[.32\paperwidth][l]{\hspace{1em}\insertshortauthor}%
+      \makebox[.36\paperwidth][c]{\insertshorttitle}%
+      \makebox[.32\paperwidth][r]{\insertshortdate\hspace{1em}}%
+    }%
+  \end{beamercolorbox}%
+  \vskip0pt%
+}
 
 % Academic highlight boxes for tables, findings, methods, and caveats.
 \tcbset{
@@ -175,7 +188,7 @@
 
 \title{数字化转型的投资结构优化效应}
 
-\author[王倩 \& 孙翊铭]{
+\author[王倩 \& 孙翊铭（吉林大学）]{
   王\quad 倩\inst{1,2}
   \qquad
   孙翊铭\inst{2}

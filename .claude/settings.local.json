@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp /Users/eamonsuen/Documents/GitHub/Paper-Digital-Real-Integration/05_Model/figures/fig1_thresholds_vs_mu.png /Users/eamonsuen/Documents/GitHub/beamer-xiangzhang-digital-economy-forum-2026/figures/paper/model-thresholds-detailed.png)",
+      "Bash(cp /Users/eamonsuen/Documents/GitHub/Paper-Digital-Real-Integration/05_Model/figures/fig4_wedge_decomposition_vs_mu.png /Users/eamonsuen/Documents/GitHub/beamer-xiangzhang-digital-economy-forum-2026/figures/paper/model-wedge-decomposition.png)",
+      "Bash(cp /Users/eamonsuen/Documents/GitHub/Paper-Digital-Real-Integration/05_Model/figures/fig5_lambda_zk_vs_mu.png /Users/eamonsuen/Documents/GitHub/beamer-xiangzhang-digital-economy-forum-2026/figures/paper/model-lambda-zk.png)",
+      "Bash(latexmk -xelatex -outdir=output main.tex)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
+    ]
+  }
+}
