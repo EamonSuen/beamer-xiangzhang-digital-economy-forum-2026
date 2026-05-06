@@ -1,7 +1,7 @@
 \section{实证证据}
 
 \begin{frame}{样本与识别策略}
-  好，现在来看数据。我们的样本是 2009--2023 年的 A 股上市公司。
+  我们的样本是 2009--2023 年的 A 股上市公司。
 
   \vspace{0.4em}
   识别策略是交叠双重差分，核心设定是：
@@ -32,7 +32,7 @@
   前面提到过，两化融合不是突发冲击。如果忽略预期效应，事前系数就会被污染。
 
   \vspace{0.4em}
-  我们的处理方式是：
+  我们的参考既有文献的处理方式（Nagengast and Yotov，2025；Bertolotti，2026）：
   \begin{itemize}
     \item 把有效处理起点前移到认证通过日之前若干期；
     \item 用事前趋势诊断和有限预期窗口，把预期效应和实际处理效应分开。
@@ -68,13 +68,6 @@
   方向完全符合模型的第一个预测——实物投资降，研发投入升。
 \end{frame}
 
-\begin{frame}{这个"剪刀差"长什么样？}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.78\linewidth,height=0.62\textheight,keepaspectratio]{figures/paper/micro-investment-structure.png}
-    \caption{上市企业层面，实物投资与研发投入的分化趋势}
-  \end{figure}
-\end{frame}
 
 \begin{frame}{稳健性：换估计量、换样本、换设定}
   基准结果稳不稳？我们做了以下检验：
@@ -92,42 +85,59 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{稳健性：多估计量对比与安慰剂检验}
+\begin{frame}[allowframebreaks]{稳健性：多估计量对比与安慰剂检验}
   \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth,height=0.68\textheight,keepaspectratio]{figures/paper/placebo-tests.png}
-    \caption{安慰剂检验与多种异质性稳健估计量的对比}
+    \caption{安慰剂检验}
+  \end{figure}
+
+  \begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth,height=0.8\textheight,keepaspectratio]{figures/paper/EventStudy_AllEstimators_CI_3x2.pdf}
+    \caption{多估计量事件研究}
   \end{figure}
 \end{frame}
 
 \begin{frame}{机制一：怎么度量"抵押囤积"？}
-  模型的第二个预测是：CapEX 收缩应该集中在那些事前囤积了大量超额资本的企业。
+  \small
+  模型预测：贯标对 CapEX 的抑制\emph{不应均匀分布}，而应集中在事前囤积超额资本的企业。要把"为生产持有的资本"与"为抵押持有的资本"区分开——前者由生产基本面决定，后者则把资本推到基本面之上。
 
-  \vspace{0.4em}
-  怎么衡量"囤积"？我们构造了一个\emph{事前囤积楔子 PH}：
-  \[
-    \ln K_{it}
-    =
-    \beta_0+\beta_1\ln Y_{it}+\beta_2\ln L_{it}
-    +\beta_3\text{SalesGrowth}_{it}
-    +\alpha_j+\gamma_t+\varepsilon_{it}.
-  \]
+  \begin{methodbox}{事前囤积楔子 PH（贯标前窗口估计）}
+    \footnotesize
+    \vspace{-0.4em}
+    \[
+      \ln K_{it}=\alpha_0+\alpha_1\ln Y_{it}+\alpha_2\ln L_{it}
+      +\alpha_3\,\text{SalesGrowth}_{it}+\gamma_j+\gamma_t+u_{it}
+    \]
+    \vspace{-1.1em}
+    \begin{itemize}\setlength\itemsep{0pt}
+      \item $K_{it}=$ 固定资产 + 在建工程 + 投资性房地产；残差 $\hat u_{it}$ = 多余资本；
+      \item $\text{PH}_i=$ 企业事前 $\hat u_{it}$ 均值（标准化），数值越大囤积越严重。
+    \end{itemize}
+    \vspace{-0.2em}
+    {\scriptsize 设计：参考Richardson (2006) 过度投资残差 以及 Chaney et al.\ (2012) 事前暴露度。}
+  \end{methodbox}
 
-  \begin{itemize}
-    \item 残差 $\varepsilon_{it}$ 就是控制产出、劳动和成长机会后仍然"多余"出来的那部分资本；
-    \item 把企业层面的事前残差均值标准化，就得到了 PH——数值越大，囤积越严重。
-  \end{itemize}
+  \begin{robustbox}{排除"技术落后"替代解释}
+    \footnotesize
+    控制企业事前 TFP 后，TFP 系数显著为负、$R^2$ 从 0.74 升至 0.77——技术越高效的企业所需资本越少。\textbf{PH 捕捉的不是落后产能。}
+  \end{robustbox}
 \end{frame}
 
 \begin{frame}{机制一：囤积越多的企业，收缩越剧烈}
   \input{tables/pledge-hoarding}
 
-  \vspace{0.4em}
-  两点发现：
-  \begin{itemize}
-    \item PH 与事前抵押率显著正相关——说明 PH 确实在捕捉抵押融资依赖，不是随便定义的指标；
-    \item PH 每高出一个标准差，贯标对资本支出的收缩效应额外增加约 \textbf{1.7 个百分点}——这大约是基准主效应的\emph{三倍}。
-  \end{itemize}
+  \begin{findingbox}{机制成立要满足三个层层递进的可证伪推论}
+    \scriptsize
+    \begin{itemize}\setlength\itemsep{1pt}
+      \item \textbf{(1) PH 有经济含义}\,---\,列 (1)：PH 与抵押率显著正相关，超额资本企业更依赖抵押融资；
+      \item \textbf{(2) 收缩集中在高 PH}\,---\,列 (2)：PH 每高一个标准差，CapEX 额外收缩 \textbf{1.7\,pp}，约基准的\emph{三倍}；
+      \item \textbf{(3) 融资结构同步去抵押化}\,---\,列 (3)：高 PH 企业贯标后抵押率显著下降，方向与实物出清一致。
+    \end{itemize}
+    \vspace{-0.2em}
+    \centering $\Rightarrow$ 实物资本收缩 $=$ \emph{抵押动机弱化驱动的主动出清}，而非被动紧缩。
+  \end{findingbox}
 \end{frame}
 
 \begin{frame}{出清发生在哪里？边际投资，不是存量甩卖}
@@ -138,7 +148,7 @@
 
   \vspace{0.5em}
   \begin{findingbox}{这个细节很重要}
-    囤积型企业并不是在变卖厂房和设备，而是\emph{停止追加新的资本形成}。出清通过控制边际投资流量实现，而不是通过甩卖既有存量——这和 Shleifer--Vishny（1992）讲的资产流动性折价逻辑是一致的。
+    囤积型企业\emph{停止追加新的资本形成}，出清通过控制边际投资流量实现，而不是通过甩卖既有存量——这和 Shleifer--Vishny（1992）讲的资产流动性折价逻辑是一致的。
   \end{findingbox}
 \end{frame}
 
@@ -166,32 +176,52 @@
   \input{tables/collateral-substitution}
 
   \vspace{0.3em}
+  \begin{findingbox}{结果解读}
   \begin{itemize}
     \item 两化融合与剩余抵押空间的交互项\emph{显著为负}；
     \item 也就是说，越逼近抵押天花板、传统抵押空间越紧张的企业，从贯标中获得的信贷扩张反而越大。
     \item 这恰好是"信息替代抵押"应该看到的模式——而不是泛泛地降低信息不对称。
   \end{itemize}
+  \end{findingbox}
 \end{frame}
 
-\begin{frame}{机制二：银行端证据——竞争更激烈的市场更依赖硬信息}
-  \input{tables/bank-competition}
-
-  \vspace{0.3em}
-  \begin{itemize}
-    \item 银行集中度高的市场，更容易通过长期银企关系生产\emph{软信息}；
-    \item 竞争激烈的市场，银行更依赖\emph{硬信息}和抵押品。
-    \item 结果很清楚：贯标的信贷促进作用，在银行竞争越激烈、关系型软信息越稀缺的地区\emph{越强}。
-  \end{itemize}
-
-  \vspace{0.3em}
-  企业端和银行端的证据，从两边共同支撑了"信息替代抵押"的机制。
-\end{frame}
-
-\begin{frame}{效率含义：资本错配改善了吗？}
-  最后看效率。如果投资结构调整只是被动缩表，我们不应该看到配置效率的改善。
+\begin{frame}{机制二：银行端理论框架——竞争结构如何决定银行的信息策略}
+  \textbf{Petersen \& Rajan (1995); Berger \& Udell (2002)} 经典框架：信贷市场的竞争结构决定银行的信息生产策略——
 
   \vspace{0.4em}
-  用标准的 MRPK 离散度来衡量资本错配：
+  \begin{itemize}
+    \setlength\itemsep{0.5em}
+    \item \emph{高集中度市场}：银行凭借市场势力\textbf{内部化}未来租金，有激励通过长期银企关系生产\textbf{软信息}；
+    \item \emph{高竞争市场}：跨期租金分享机制瓦解，银行只能依赖可观测、可验证的\textbf{硬信息}与\textbf{实物抵押}进行放贷。
+  \end{itemize}
+
+  \vspace{0.4em}
+  \begin{methodbox}{把贯标视为"硬信息供给冲击"——可证伪推论}
+    若信息硬化是核心渠道，贯标的信贷扩张效应应集中在\emph{软信息相对稀缺的高竞争市场}；若仅通过信号显示 / 政府背书 / 补贴等替代渠道发挥作用，效应不应与银行竞争结构呈现这种系统替代关系。
+  \end{methodbox}
+\end{frame}
+
+\begin{frame}{机制二：银行端结果—}
+  \input{tables/bank-competition}
+
+  \begin{findingbox}{银行端 $+$ 企业端 $=$ 双重替代}
+    \footnotesize
+    CR3（前三大银行分支占比，越高越集中）的交互项在总贷款、抵押贷款、短期贷款上均\emph{显著为负}——竞争越激烈、软信息越稀缺的地区，贯标的信贷促进越强。
+
+    \medskip
+    结合表 12 的企业端抵押空间异质性：贯标在边际上\textbf{同时替代了企业实物抵押与银行关系型软信息}——这一双重替代把"信息硬化"渠道与信号显示 / 政府背书 / 补贴等替代解释相区分。
+  \end{findingbox}
+\end{frame}
+
+\begin{frame}{效率含义：为什么 CapEX 下降可能是效率改善？}
+  最后看效率。关键不是实物投资规模本身，而是资本是否从\emph{抵押驱动的低效存量}转向\emph{边际回报更高的项目}。
+
+  \begin{methodbox}{理论推演}
+    \footnotesize
+    在存在融资摩擦时，资本边际产出偏离效率基准：受约束的高回报企业资本不足，MRPK 偏高；抵押能力强、囤积有形资产的企业资本过多，MRPK 偏低。数字化信息替代抵押后，维持冗余抵押品的融资动机下降，资本配置应向效率基准回归。
+  \end{methodbox}
+
+  \vspace{-0.3em}
   \[
     MRPK_{it}
     =
@@ -199,19 +229,30 @@
     =
     \alpha_K^j\cdot\frac{\text{Revenue}_{it}}{K_{it}}.
   \]
+  \vspace{-0.8em}
 
-  \input{tables/efficiency}
+  \begin{enumerate}\setlength\itemsep{0.25em}
+    \item \textbf{存量错配下降：}高 MRPK 企业获得融资修复后，边际回报应向行业均值回落；
+    \item \textbf{增量筛选改善：}即使总 CapEX 下降，投资也应更贴近 Tobin's $Q$ 所代表的成长机会；
+    \item \textbf{冗余产能出清：}资本越老，越容易落入抵押囤积区域，贯标后的收缩应更强。
+  \end{enumerate}
 \end{frame}
 
-\begin{frame}{效率改善的三条证据}
-  \begin{itemize}
-    \item 事前 MRPK 较高的企业在政策后出现更强的边际回报回落，行业内的 MRPK 离散度\emph{显著下降}——资本在向回报更高的地方流动；
-    \item 尽管企业总体资本支出规模在收缩，投资对滞后一期 Tobin's $Q$ 的敏感性反而\emph{上升}——说明投资筛选质量在变好；
-    \item 资本年龄越高，贯标对实物资本支出的抑制效应就越强——跟模型预测的"老资本更容易掉进囤积区域"完全吻合。
-  \end{itemize}
+\begin{frame}{效率含义：表 16 的三条证据}
+  \vspace{-0.4em}
+  \input{tables/efficiency}
 
-  \vspace{0.5em}
-  三条证据合在一起，指向同一个结论：\emph{这不是被动紧缩，而是资本配置效率在改善}。
+  \vspace{-0.2em}
+  \begin{findingbox}{实证结果解读}
+    \scriptsize
+    \begin{itemize}\setlength\itemsep{0pt}
+      \item \textbf{存量错配：}列 (1) 交互项显著为负，高 MRPK 企业回落更强，资本边际回报离散度收敛；
+      \item \textbf{增量筛选：}列 (2) 投资--$Q$ 敏感性上升，说明更少 CapEX 流向更高成长机会；
+      \item \textbf{老旧出清：}列 (3) 资本年龄交互项显著为负，老资本企业收缩更强，符合抵押囤积门槛预测。
+    \end{itemize}
+    \vspace{-0.25em}
+    \centering $\Rightarrow$ CapEX 下降不是简单紧缩，而是存量错配、增量筛选与冗余出清的同步改善。
+  \end{findingbox}
 \end{frame}
 
 \begin{frame}{研发不只是费用：从短期支出到长期资产}
@@ -220,8 +261,10 @@
   \vspace{0.3em}
   最后一个机制证据：贯标之后，企业的研发活动发生了什么变化？
 
+  \begin{findingbox}{实证结果解读}
   \begin{itemize}
     \item 创新补助显著增加，研发人员占比上升——研发的\emph{"量"}在扩大；
     \item 更值得关注的是结构变化：研发费用化比率下降、资本化比率上升——说明研发在从短期分散投入，转向更制度化、可持续的长期资产构建。
   \end{itemize}
+  \end{findingbox}
 \end{frame}
